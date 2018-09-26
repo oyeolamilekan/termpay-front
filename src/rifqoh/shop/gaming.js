@@ -5,6 +5,7 @@ import Progress from 'react-progress-2';
 import 'react-progress-2/main.css';
 import BodyPage from '../bodyPage';
 import MiniNavigationS from './shopNav';
+import url from '../url';
 class GameIndex extends Component {
     constructor(props) {
         super(props);
@@ -25,12 +26,12 @@ class GameIndex extends Component {
     componentDidMount(){
         Progress.hide();
         const { slug } = this.props.match.params;
-        fetch(`/api/q_shop/${slug}/gaming`, {
+        fetch(`${url}/api/q_shop/${slug}/gaming`, {
         }).then(res=>res.json())
         .then((response)=>{
             this.setState({
                 productList: response.results,
-                isNext: response.next.replace('https://rifqoe.herokuapp.com/','')
+                isNext: response.next.replace(url,'')
             })
         })
         document.addEventListener('scroll', this.trackScrolling);
@@ -50,14 +51,14 @@ class GameIndex extends Component {
     };
 
     loadMore = () => {
-        let next = this.state.isNext;
+        let next = `${url}${this.state.isNext}`;
         if (next !== null){
             fetch(next, {
             }).then(res=>res.json())
             .then((response)=>{
                 let resultss = this.state.productList;
                 let newpost = resultss.concat(response.results);
-                let next = response.next === null ? null : response.next.replace('https://rifqoe.herokuapp.com/','')
+                let next = response.next === null ? null : response.next.replace(url,'')
                 this.setState({
                     productList:newpost,
                     isNext: next

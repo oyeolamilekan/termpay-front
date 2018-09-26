@@ -10,6 +10,7 @@ import 'react-progress-2/main.css';
 import CurrentPage from '../currentPage';
 import BodyPage from '../bodyPage';
 import MiniNavigationT from './miniNavT';
+import url from '../url';
 
 class Trending_p extends Component {
     constructor(props) {
@@ -36,12 +37,12 @@ class Trending_p extends Component {
     // When the page is first loaded
     componentDidMount(){
         Progress.hide();
-        fetch('https://rifqoe.herokuapp.com/api/phone_t/', {
+        fetch(`${url}/api/phone_t/`, {
         }).then(res=>res.json())
         .then((response)=>{
             this.setState({
                 productList:response.results,
-                isNext: response.next.replace('http://localhost:8000','')
+                isNext: response.next.replace(url,'')
             })
         })
         document.addEventListener('scroll', this.trackScrolling);
@@ -66,7 +67,7 @@ class Trending_p extends Component {
             .then((response)=>{
                 let resultss = this.state.productList;
                 let newpost = resultss.concat(response.results);
-                let next = response.next === null ? null : response.next.replace('http://localhost:8000','')
+                let next = response.next === null ? null : response.next.replace(url,'')
                 this.setState({
                     productList:newpost,
                     isNext: next

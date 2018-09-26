@@ -11,6 +11,7 @@ import CurrentPage from '../currentPage';
 import Progress from 'react-progress-2';
 import 'react-progress-2/main.css';
 import BodyPage from '../bodyPage';
+import url from '../url';
 
 class Products extends Component {
     constructor(props) {
@@ -31,12 +32,12 @@ class Products extends Component {
 
     componentDidMount(){
         Progress.hide();
-        fetch('/api/products/', {
+        fetch(`${url}/api/products/`, {
         }).then(res=>res.json())
         .then((response)=>{
             this.setState({
                 productList:response.results,
-                isNext: response.next.replace('https://rifqoe.herokuapp.com/','')
+                isNext: response.next.replace(url,'')
             })
         })
         document.addEventListener('scroll', this.trackScrolling);
@@ -56,7 +57,7 @@ class Products extends Component {
     };
 
     loadMore = () => {
-        let next = this.state.isNext;
+        let next = `${url}${this.state.isNext}`;
         console.log(next)
         if (next !== null){
             fetch(next, {
@@ -64,7 +65,7 @@ class Products extends Component {
             .then((response)=>{
                 let resultss = this.state.productList;
                 let newpost = resultss.concat(response.results);
-                let next = response.next === null ? null : response.next.replace('https://rifqoe.herokuapp.com/','')
+                let next = response.next === null ? null : response.next.replace(url,'')
                 this.setState({
                     productList:newpost,
                     isNext: next

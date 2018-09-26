@@ -2,6 +2,7 @@
   "name": "react-rifqoh",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://rifqoe.herokuapp.com/",
   "dependencies": {
     "react": "^16.4.1",
     "react-dom": "^16.4.1",

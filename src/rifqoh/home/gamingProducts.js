@@ -23,7 +23,7 @@ class gamingProducts extends Component {
     }
     componentDidMount(){
         Progress.hide();
-        fetch('https://rifqoe.herokuapp.com/api/gaming/', {
+        fetch('/api/gaming/', {
         }).then(res=>res.json())
         .then((response)=>{
             this.setState({
@@ -50,7 +50,7 @@ class gamingProducts extends Component {
             .then((response)=>{
                 let resultss = this.state.productList;
                 let newpost = resultss.concat(response.results);
-                let next = response.next === null ? null : response.next.replace('http://localhost:8000','')
+                let next = response.next === null ? null : response.next.replace('https://rifqoe.herokuapp.com/','')
                 this.setState({
                     productList:newpost,
                     isNext: next

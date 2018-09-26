@@ -23,7 +23,7 @@ class laptopsProducts extends Component {
     }
     componentDidMount(){
         Progress.hide();
-        fetch('https://rifqoe.herokuapp.com/api/laptops', {
+        fetch('/api/laptops/', {
         }).then(res=>res.json())
         .then((response)=>{
             this.setState({
@@ -51,7 +51,7 @@ class laptopsProducts extends Component {
             .then((response)=>{
                 let resultss = this.state.productList;
                 let newpost = resultss.concat(response.results);
-                let next = response.next === null ? null : response.next.replace('http://localhost:8000','')
+                let next = response.next === null ? null : response.next.replace('https://rifqoe.herokuapp.com/','')
                 this.setState({
                     productList:newpost,
                     isNext: next

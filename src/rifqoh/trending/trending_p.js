@@ -60,7 +60,7 @@ class Trending_p extends Component {
     };
 
     loadMore = () => {
-        let next = this.state.isNext;
+        let next = `${url}${this.state.isNext}`;
         if (next !== null){
             fetch(next, {
             }).then(res=>res.json())

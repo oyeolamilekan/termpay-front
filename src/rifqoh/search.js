@@ -8,6 +8,7 @@ import React, { Component } from 'react';
 import {withRouter} from 'react-router';
 import Progress from 'react-progress-2';
 import './bodyPage';
+import url from './url'; 
 class Search extends Component {
     constructor(props) {
       super(props);
@@ -38,8 +39,8 @@ class Search extends Component {
     submit(event) {
         Progress.show();
         event.preventDefault();
-        let url = '/api/r_search/?q=' + this.state.term;
-        fetch(url, {
+        let urll = `${url}/api/r_search/?q=` + this.state.term;
+        fetch(urll, {
         }).then(res=>res.json())
         .then((respone)=>{
             let data = {

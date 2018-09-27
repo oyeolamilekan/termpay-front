@@ -40,7 +40,7 @@ class ProductDetail extends Component {
             <div className="row">
                 {results.map(item=>(
                     <div className='col-lg-3 col-md-4 col-sm-6 col-xs-12' key={item.id + '' + item.name}>
-                        <a href={`${url}/api/r_redirect/${item.id?item.objectID:item.id}`} target='_blank' className='product_d text-dark'>
+                        <a href={`${url}/api/r_redirect/${ item.id?item.id:item.objectID}`} target='_blank' className='product_d text-dark'>
                             <div className='snpt' key={item.id}>
                                 {/* <img src={item.image.indexOf('local') > -1 ? item.image : item.image.indexOf('media') > -1 ? 'http://localhost:8000'+ item.image : 'http://localhost:8000/media/'+ item.image } alt={item.name} className='img-prod' /> */}
                                 <img src={ item.image.indexOf('res') > -1 ? item.image : 'https://res.cloudinary.com/dbwm0ksoi/image/upload/v1/'+item.image} alt={item.name} className='img-prod' />

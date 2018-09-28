@@ -66,7 +66,6 @@ class ShopIndex extends Component {
                 this.setState({
                     productList:newpost,
                     isNext: next,
-                    isLoading: false,
                 })
             })
         }

@@ -12,7 +12,8 @@ class LaptopIndex extends Component {
         super(props);
         this.state = {
             productList: [],
-            isNext:null
+            isNext:null,
+            isLoading:true,
         }
     }
 
@@ -32,7 +33,8 @@ class LaptopIndex extends Component {
         .then((response)=>{
             this.setState({
                 productList: response.results,
-                isNext: response.next.replace(url,'')
+                isNext: response.next.replace(url,''),
+                isLoading:false,
             })
         })
         document.addEventListener('scroll', this.trackScrolling);

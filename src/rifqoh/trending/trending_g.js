@@ -11,12 +11,15 @@ import CurrentPage from '../currentPage';
 import BodyPage from '../bodyPage';
 import MiniNavigationT from './miniNavT';
 import url from '../url';
+import Loading from '../loading';
+
 class Trending_g extends Component {
     constructor(props) {
         super(props);
         this.state = {
             productList: [],
             isNext:null,
+            isLoading:true,
         }
     }
 
@@ -41,7 +44,8 @@ class Trending_g extends Component {
         .then((response)=>{
             this.setState({
                 productList:response.results,
-                isNext: response.next.replace(url,'')
+                isNext: response.next.replace(url,''),
+                isLoading:false,
             })
         })
         document.addEventListener('scroll', this.trackScrolling);
@@ -78,13 +82,21 @@ class Trending_g extends Component {
     // Renders the given page to the user
     render() {
         const {productList} = this.state;
-        return (
-            <div className='trending'>
-                <CurrentPage current='Trending' dClass='grd-color-2'/>
-                <MiniNavigationT/>
-                <BodyPage results={productList}/>
-            </div>
-        )
+        if (this.state.isLoading) {
+            return (
+                <div className='container pre-loader h-100 text-center'>
+                    <Loading/>
+                </div>
+            )
+        } else {
+            return (
+                <div className='trending'>
+                    <CurrentPage current='Trending' dClass='grd-color-2'/>
+                    <MiniNavigationT/>
+                    <BodyPage results={productList}/>
+                </div>
+            )
+        }
     }
 }
 

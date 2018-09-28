@@ -12,13 +12,15 @@ import Progress from 'react-progress-2';
 import 'react-progress-2/main.css';
 import BodyPage from '../bodyPage';
 import url from '../url';
+import Loading from '../loading';
 
 class Products extends Component {
     constructor(props) {
         super(props);
         this.state = {
             productList: [],
-            isNext:null
+            isNext:null,
+            isLoading:true,
         }
     }
 
@@ -37,7 +39,8 @@ class Products extends Component {
         .then((response)=>{
             this.setState({
                 productList:response.results,
-                isNext: response.next.replace(url,'')
+                isNext: response.next.replace(url,''),
+                isLoading:false,
             })
         })
         document.addEventListener('scroll', this.trackScrolling);
@@ -79,13 +82,21 @@ class Products extends Component {
     }
     render() {
         const { productList } = this.state;
-        return (
-            <div>
-                <CurrentPage current='Home' dClass='grd-color-3'/>
-                <MiniNavigation/>
-                <BodyPage results = {productList}/>
-            </div>
-        )
+        if (this.state.isLoading) {
+            return (
+                <div className='container pre-loader h-100 text-center'>
+                    <Loading/>
+                </div>
+            )
+        } else {
+            return (
+                <div>
+                    <CurrentPage current='Home' dClass='grd-color-3'/>
+                    <MiniNavigation/>
+                    <BodyPage results = {productList}/>
+                </div>
+            )
+        }
         
     };
 }

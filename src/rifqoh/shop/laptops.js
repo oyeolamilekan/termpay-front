@@ -5,6 +5,8 @@ import 'react-progress-2/main.css';
 import BodyPage from '../bodyPage';
 import MiniNavigationS from './shopNav';
 import url from '../url';
+import Loading from '../loading';
+
 class LaptopIndex extends Component {
     constructor(props) {
         super(props);
@@ -72,13 +74,21 @@ class LaptopIndex extends Component {
     render() {
         const { productList } = this.state;
         const { slug } = this.props.match.params;
-        return (
-            <div className='wrapper'>
-                <CurrentPage current='Shop' dClass='grd-color-7'/>
-                <MiniNavigationS shop={slug}/>
-                <BodyPage results={productList}/>
-            </div>
-        )
+        if (this.state.isLoading) {
+            return (
+                <div className='container pre-loader h-100 text-center'>
+                    <Loading/>
+                </div>
+            )
+        } else {
+            return (
+                <div className='wrapper'>
+                    <CurrentPage current='Shop' dClass='grd-color-7'/>
+                    <MiniNavigationS shop={slug}/>
+                    <BodyPage results={productList}/>
+                </div>
+            )
+        }
     };
 }
 

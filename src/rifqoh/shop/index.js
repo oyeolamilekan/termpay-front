@@ -11,7 +11,8 @@ class Shop extends Component {
         super(props);
         this.state = {
             productList: [],
-            isNext:null
+            isNext:null,
+            
         }
     }
 

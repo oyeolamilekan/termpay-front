@@ -38,6 +38,7 @@ class Main extends Component {
             <Route path='/:slug/gaming' component={GamingIndex}/>
             <Route path='/:slug/phone' component={PhoneIndex}/>
             <Route path='/shop' component={Shop}/>
+        
         </Switch>
         )
     }

@@ -6,12 +6,15 @@ import 'react-progress-2/main.css';
 import BodyPage from '../bodyPage';
 import MiniNavigationS from './shopNav';
 import url from '../url';
+import Loading from '../loading';
+
 class GameIndex extends Component {
     constructor(props) {
         super(props);
         this.state = {
             productList: [],
-            isNext:null
+            isNext:null,
+            isLoading:true,
         }
     }
 
@@ -31,7 +34,8 @@ class GameIndex extends Component {
         .then((response)=>{
             this.setState({
                 productList: response.results,
-                isNext: response.next.replace(url,'')
+                isNext: response.next.replace(url,''),
+                isLoading:true,
             })
         })
         document.addEventListener('scroll', this.trackScrolling);
@@ -61,7 +65,8 @@ class GameIndex extends Component {
                 let next = response.next === null ? null : response.next.replace(url,'')
                 this.setState({
                     productList:newpost,
-                    isNext: next
+                    isNext: next,
+                    isLoading: false,
                 })
             })
         }
@@ -73,13 +78,21 @@ class GameIndex extends Component {
     render() {
         const { productList } = this.state;
         const { slug } = this.props.match.params;
-        return (
-            <div className='wrapper'>
-                <CurrentPage current='Shop' dClass='grd-color-7'/>
-                <MiniNavigationS shop={slug}/>
-                <BodyPage results={productList}/>
-            </div>
-        )
+        if (this.state.isLoading) {
+            return (
+                <div className='container pre-loader h-100 text-center'>
+                    <Loading/>
+                </div>
+            )
+        } else {
+            return (
+                <div className='wrapper'>
+                    <CurrentPage current='Shop' dClass='grd-color-7'/>
+                    <MiniNavigationS shop={slug}/>
+                    <BodyPage results={productList}/>
+                </div>
+            )
+        }
     };
 }
 

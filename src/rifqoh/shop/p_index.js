@@ -35,7 +35,7 @@ class ShopIndex extends Component {
             this.setState({
                 productList: response.results,
                 isNext: response.next.replace(url,''),
-                isLoading:true,
+                isLoading:false,
             })
         })
         document.addEventListener('scroll', this.trackScrolling);

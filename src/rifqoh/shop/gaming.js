@@ -48,7 +48,6 @@ class GameIndex extends Component {
     trackScrolling = () => {
         const wrappedElement = document.getElementById('root');
         if (this.isBottom(wrappedElement)) {
-          console.log('header bottom reached');
           // document.removeEventListener('scroll', this.trackScrolling);
           this.loadMore();
         }

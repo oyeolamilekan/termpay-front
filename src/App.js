@@ -10,7 +10,10 @@ class App extends Component {
   render() {
     return(
     <div>
-      <Progress.Component/>
+      <Progress.Component 
+        style={{background:'black'}}
+        thumbStyle={{background:'black'}}
+      />
       <Navigation/>
       <Main/>
     </div>

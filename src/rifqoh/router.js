@@ -20,6 +20,7 @@ import LaptopIndex from './shop/laptops';
 import GamingIndex from './shop/gaming';
 import PhoneIndex from './shop/phone';
 import Results from './results';
+import NotFound from './404';
 class Main extends Component {
     render () {
         return (
@@ -38,6 +39,7 @@ class Main extends Component {
             <Route path='/:slug/gaming' component={GamingIndex}/>
             <Route path='/:slug/phone' component={PhoneIndex}/>
             <Route path='/shop' component={Shop}/>
+            <Route path='' component={NotFound}/>
         
         </Switch>
         )

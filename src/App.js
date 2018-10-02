@@ -11,8 +11,8 @@ class App extends Component {
     return(
     <div>
       <Progress.Component 
-        style={{background:'black'}}
-        thumbStyle={{background:'black'}}
+        style={{background:'#dc3545'}}
+        thumbStyle={{background:'#dc3545'}}
       />
       <Navigation/>
       <Main/>

@@ -35,7 +35,6 @@ class ProductDetail extends Component {
     }
     render() {
         const {results} = this.state;
-        console.log(results);
         return(
             <div className="row">
                 {results.map(item=>(

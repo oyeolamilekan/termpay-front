@@ -4,9 +4,8 @@ import load from '../loadingo.gif';
 class MiniLoading extends Component {
     render() {
         return (
-            <div className='container'>
+            <div className='container p-3 my'>
                 <img src={load} className='img-sm' alt='loading'/>
-                <span className='mt-4'></span>
             </div>
         )
     }

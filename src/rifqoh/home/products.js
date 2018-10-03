@@ -55,11 +55,11 @@ class Products extends Component {
     trackScrolling = () => {
         const wrappedElement = document.getElementById('root');
         if (this.isBottom(wrappedElement)) {
-          console.log('header bottom reached');
+            this.setState({
+                isNextLoading:true,
+            })
           // document.removeEventListener('scroll', this.trackScrolling);
-          this.setState({
-            isNextLoading:true,
-          })
+          
           this.loadMore();
         }
     };
@@ -101,7 +101,7 @@ class Products extends Component {
                     <CurrentPage current='Home' dClass='grd-color-3'/>
                     <MiniNavigation/>
                     <BodyPage results = {productList}/>
-                    {isNextLoading ? <div className='text-center'><MiniLoading/></div>: ''}
+                    {isNextLoading ? <div className='text-center'><MiniLoading/></div> : ''}
                 </div>
             )
         }

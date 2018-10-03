@@ -13,6 +13,7 @@ import 'react-progress-2/main.css';
 import BodyPage from '../bodyPage';
 import url from '../url';
 import Loading from '../loading';
+import MiniLoading from '../miniLoading';
 
 class Products extends Component {
     constructor(props) {
@@ -21,6 +22,7 @@ class Products extends Component {
             productList: [],
             isNext:null,
             isLoading:true,
+            isNextLoading:false,
         }
     }
 
@@ -55,6 +57,9 @@ class Products extends Component {
         if (this.isBottom(wrappedElement)) {
           console.log('header bottom reached');
           // document.removeEventListener('scroll', this.trackScrolling);
+          this.setState({
+            isNextLoading:true,
+          })
           this.loadMore();
         }
     };
@@ -71,7 +76,8 @@ class Products extends Component {
                 let next = response.next === null ? null : response.next.replace(url,'')
                 this.setState({
                     productList:newpost,
-                    isNext: next
+                    isNext: next,
+                    isNextLoading:false
                 })
             })
         }
@@ -82,6 +88,7 @@ class Products extends Component {
     }
     render() {
         const { productList } = this.state;
+        const { isNextLoading } = this.state;
         if (this.state.isLoading) {
             return (
                 <div className='container pre-loader h-100 text-center'>
@@ -94,6 +101,7 @@ class Products extends Component {
                     <CurrentPage current='Home' dClass='grd-color-3'/>
                     <MiniNavigation/>
                     <BodyPage results = {productList}/>
+                    {isNextLoading ? <div className='text-center'><MiniLoading/></div>: ''}
                 </div>
             )
         }

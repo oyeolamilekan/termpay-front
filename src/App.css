@@ -166,3 +166,7 @@ a.product_d{
 .mt-100 {
   margin-top: 150px;
 }
+
+.img-sm{
+  width: 30px;
+}

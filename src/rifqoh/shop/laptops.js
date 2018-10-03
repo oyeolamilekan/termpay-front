@@ -6,6 +6,7 @@ import BodyPage from '../bodyPage';
 import MiniNavigationS from './shopNav';
 import url from '../url';
 import Loading from '../loading';
+import MiniLoading from '../miniLoading';
 
 class LaptopIndex extends Component {
     constructor(props) {
@@ -14,6 +15,7 @@ class LaptopIndex extends Component {
             productList: [],
             isNext:null,
             isLoading:true,
+            isNextLoading:false,
         }
     }
 
@@ -33,7 +35,7 @@ class LaptopIndex extends Component {
         .then((response)=>{
             this.setState({
                 productList: response.results,
-                isNext: response.next.replace(url,''),
+                isNext: response.next ? response.next.replace(url,'') : '',
                 isLoading:false,
             })
         })
@@ -47,9 +49,11 @@ class LaptopIndex extends Component {
     trackScrolling = () => {
         const wrappedElement = document.getElementById('root');
         if (this.isBottom(wrappedElement)) {
-          console.log('header bottom reached');
+            this.setState({
+                isNextLoading:true,
+            })
           // document.removeEventListener('scroll', this.trackScrolling);
-          this.loadMore();
+            this.loadMore();
         }
     };
 
@@ -61,10 +65,11 @@ class LaptopIndex extends Component {
             .then((response)=>{
                 let resultss = this.state.productList;
                 let newpost = resultss.concat(response.results);
-                let next = response.next === null ? null : response.next.replace(url,'')
+                let next = response.next === null ? '' : response.next.replace(url,'')
                 this.setState({
                     productList:newpost,
-                    isNext: next
+                    isNext: next,
+                    isNextLoading:false
                 })
             })
         }
@@ -75,6 +80,7 @@ class LaptopIndex extends Component {
     }
     render() {
         const { productList } = this.state;
+        const { isNextLoading } = this.state;
         const { slug } = this.props.match.params;
         if (this.state.isLoading) {
             return (
@@ -88,6 +94,7 @@ class LaptopIndex extends Component {
                     <CurrentPage current='Shop' dClass='grd-color-7'/>
                     <MiniNavigationS shop={slug}/>
                     <BodyPage results={productList}/>
+                    {isNextLoading ? <div className='text-center'><MiniLoading/></div> : ''}
                 </div>
             )
         }

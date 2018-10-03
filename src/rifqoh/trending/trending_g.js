@@ -12,6 +12,7 @@ import BodyPage from '../bodyPage';
 import MiniNavigationT from './miniNavT';
 import url from '../url';
 import Loading from '../loading';
+import MiniLoading from '../miniLoading';
 
 class Trending_g extends Component {
     constructor(props) {
@@ -20,6 +21,7 @@ class Trending_g extends Component {
             productList: [],
             isNext:null,
             isLoading:true,
+            isNextLoading:false,
         }
     }
 
@@ -44,7 +46,7 @@ class Trending_g extends Component {
         .then((response)=>{
             this.setState({
                 productList:response.results,
-                isNext: response.next.replace(url,''),
+                isNext: response.next ? response.next.replace(url,'') : '',
                 isLoading:false,
             })
         })
@@ -58,7 +60,10 @@ class Trending_g extends Component {
     trackScrolling = () => {
         const wrappedElement = document.getElementById('root');
         if (this.isBottom(wrappedElement)) {
-          this.loadMore();
+            this.setState({
+                isNextLoading:true,
+            })
+            this.loadMore();
         }
     };
 
@@ -70,10 +75,11 @@ class Trending_g extends Component {
             .then((response)=>{
                 let resultss = this.state.productList;
                 let newpost = resultss.concat(response.results);
-                let next = response.next === null ? null : response.next.replace(url,'')
+                let next = response.next === null ? '' : response.next.replace(url,'')
                 this.setState({
                     productList:newpost,
-                    isNext: next
+                    isNext: next,
+                    isNextLoading:false
                 })
             })
         }
@@ -82,6 +88,7 @@ class Trending_g extends Component {
     // Renders the given page to the user
     render() {
         const {productList} = this.state;
+        const { isNextLoading } = this.state;
         if (this.state.isLoading) {
             return (
                 <div className='container pre-loader h-100 text-center'>
@@ -94,6 +101,7 @@ class Trending_g extends Component {
                     <CurrentPage current='Trending' dClass='grd-color-2'/>
                     <MiniNavigationT/>
                     <BodyPage results={productList}/>
+                    {isNextLoading ? <div className='text-center'><MiniLoading/></div> : ''}
                 </div>
             )
         }

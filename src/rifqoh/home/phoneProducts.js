@@ -12,6 +12,7 @@ import 'react-progress-2/main.css';
 import BodyPage from '../bodyPage';
 import url from '../url';
 import Loading from '../loading';
+import MiniLoading from '../miniLoading';
 
 class phoneProducts extends Component {
     constructor(props) {
@@ -20,6 +21,7 @@ class phoneProducts extends Component {
             productList: [],
             isNext:null,
             isLoading:true,
+            isNextLoading:false,
         }
     }
 
@@ -38,7 +40,7 @@ class phoneProducts extends Component {
         .then((response)=>{
             this.setState({
                 productList:response.results,
-                isNext: response.next.replace(url,''),
+                isNext: response.next ? response.next.replace(url,'') : '',
                 isLoading:false,
             })
         })
@@ -52,9 +54,10 @@ class phoneProducts extends Component {
     trackScrolling = () => {
         const wrappedElement = document.getElementById('root');
         if (this.isBottom(wrappedElement)) {
-          console.log('header bottom reached');
-          // document.removeEventListener('scroll', this.trackScrolling);
-          this.loadMore();
+            this.setState({
+                isNextLoading:true,
+            })
+            this.loadMore();
         }
     };
 
@@ -66,10 +69,11 @@ class phoneProducts extends Component {
             .then((response)=>{
                 let resultss = this.state.productList;
                 let newpost = resultss.concat(response.results);
-                let next = response.next === null ? null : response.next.replace(url,'')
+                let next = response.next === null ? '' : response.next.replace(url,'')
                 this.setState({
                     productList:newpost,
-                    isNext: next
+                    isNext: next,
+                    isNextLoading:false
                 })
             })
         }
@@ -77,6 +81,7 @@ class phoneProducts extends Component {
 
     render() {
         const { productList } = this.state;
+        const { isNextLoading } = this.state;
         if (this.state.isLoading) {
             return (
                 <div className='container pre-loader h-100 text-center'>
@@ -89,6 +94,7 @@ class phoneProducts extends Component {
                     <CurrentPage current='Phone' dClass='grd-color-4'/>
                     <MiniNavigation/>
                     <BodyPage results = {productList}/>
+                    {isNextLoading ? <div className='text-center'><MiniLoading/></div> : ''}
                 </div>
             )
         }

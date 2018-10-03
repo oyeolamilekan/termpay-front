@@ -41,7 +41,7 @@ class Products extends Component {
         .then((response)=>{
             this.setState({
                 productList:response.results,
-                isNext: response.next.replace(url,''),
+                isNext: response.next ? response.next.replace(url,'') : '',
                 isLoading:false,
             })
         })
@@ -60,7 +60,7 @@ class Products extends Component {
             })
           // document.removeEventListener('scroll', this.trackScrolling);
           
-          this.loadMore();
+            this.loadMore();
         }
     };
 
@@ -73,7 +73,7 @@ class Products extends Component {
             .then((response)=>{
                 let resultss = this.state.productList;
                 let newpost = resultss.concat(response.results);
-                let next = response.next === null ? null : response.next.replace(url,'')
+                let next = response.next === null ? '' : response.next.replace(url,'')
                 this.setState({
                     productList:newpost,
                     isNext: next,

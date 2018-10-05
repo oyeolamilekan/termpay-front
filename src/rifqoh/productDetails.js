@@ -44,7 +44,7 @@ class ProductDetail extends Component {
                                 {/* <img src={item.image.indexOf('local') > -1 ? item.image : item.image.indexOf('media') > -1 ? 'http://localhost:8000'+ item.image : 'http://localhost:8000/media/'+ item.image } alt={item.name} className='img-prod' /> */}
                                 <img src={ item.image.indexOf('res') > -1 ? item.image : 'https://res.cloudinary.com/dbwm0ksoi/image/upload/v1/'+item.image} alt={item.name} className='img-prod' />
                                 <p>{item.name.length > 50 ? item.name.slice(0,50) + '....' : item.name}</p>
-                                <p>N {item.price}</p>
+                                <p>N{item.price}</p>
                                 <p>{item.shop}</p>
                             </div>
                         </a>

@@ -74,7 +74,7 @@ class FeedBack extends Component {
                             sent ? 
                                 <div className='text-center'>
                                     <h1>
-                                        <i className='fa fa-check text-danger'></i>
+                                        <i className='fa fa-check text-success'></i>
                                     </h1>
                                     <h3 className='font-weight-light'>Thanks for the feedback.</h3>
                                     <p className='font-weight-light'>We promise to work on it.</p>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Navigation from './rifqoh/nav';
 import Main from './rifqoh/router';
+import FeedBack from './rifqoh/feedBack';
 import Progress from 'react-progress-2';
 import 'react-progress-2/main.css';
 
@@ -16,6 +17,7 @@ class App extends Component {
       />
       <Navigation/>
       <Main/>
+      <FeedBack/>
     </div>
     )
   }

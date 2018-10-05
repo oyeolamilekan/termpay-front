@@ -86,7 +86,7 @@ class GameIndex extends Component {
 
         if (this.state.isLoading) {
             return (
-                <div className='container pre-loader h-100 text-center'>
+                <div className='container pre-loader mt-100 h-100 text-center'>
                     <Loading/>
                 </div>
             )

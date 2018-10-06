@@ -196,3 +196,7 @@ a.product_d{
 a.float:hover{
   color: #fff;
 }
+
+.mt-50 {
+  margin-top: 57px;
+}

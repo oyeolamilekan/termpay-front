@@ -15,7 +15,7 @@ class Navigation extends Component {
     render() {
         return (
         <div>
-        <nav className="navbar navbar-expand-lg navbar-light bg-white">
+        <nav className="navbar navbar-expand-lg navbar-light bg-white fixed-top mb-4">
         <NavLink exact to='/' activeClassName='active' className='nav-link' onClick={clicker}><img src={strip} alt='logo' className='logo'/></NavLink>
             <div className='specialBar'>
                 <Search/>
@@ -42,6 +42,7 @@ class Navigation extends Component {
                 
             </div>
             </nav>
+            <div className='mt-50'></div>
             </div>
         )
     } 

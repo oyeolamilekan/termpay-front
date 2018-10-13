@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 import url from './url';
-import Loading from './loading';
+import Loading from 'react-spinners/ClipLoader';
 
 class FeedBack extends Component {
     constructor(props) {
@@ -69,7 +69,7 @@ class FeedBack extends Component {
                             </div>
                             <div className="modal-body">
                             {loading ? <div className='text-center'>
-                                    <Loading/>
+                                    <Loading sizeUnit={"px"} size={95}/>
                                     </div> :
                             sent ? 
                                 <div className='text-center'>

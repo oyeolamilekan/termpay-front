@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import load from '../loadingo.gif';
-
+import Loader from 'react-spinners/ClipLoader';
 class MiniLoading extends Component {
     render() {
         return (
             <div className='container p-3 my'>
-                <img src={load} className='img-sm' alt='loading'/>
+                <Loader/>
             </div>
         )
     }

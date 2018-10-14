@@ -21,27 +21,31 @@ import GamingIndex from './shop/gaming';
 import PhoneIndex from './shop/phone';
 import Results from './results';
 import NotFound from './404';
+import Navigation from './nav';
+
 class Main extends Component {
     render () {
         return (
-        <Switch>
-            <Route exact path='/' component={Products}></Route>
-            <Route path='/phone' component={phoneProducts}></Route>
-            <Route path='/laptops' component={laptopsProducts}/>
-            <Route path='/gaming' component={gamingProducts}></Route>
-            <Route path='/trending' component={Trending}></Route>
-            <Route path='/trending_p' component={Trending_p}></Route>
-            <Route path='/trending_l' component={Trending_l}></Route>
-            <Route path='/trending_g' component={Trending_g}></Route>
-            <Route exact path='/results' component={Results}></Route>
-            <Route path='/:slug/all' component={ShopIndex}/>
-            <Route path='/:slug/laptops' component={LaptopIndex}/>
-            <Route path='/:slug/gaming' component={GamingIndex}/>
-            <Route path='/:slug/phone' component={PhoneIndex}/>
-            <Route path='/shop' component={Shop}/>
-            <Route path='' component={NotFound}/>
-        
-        </Switch>
+        <div className='con'>
+            <Navigation/>
+            <Switch>
+                <Route exact path='/' component={Products}></Route>
+                <Route path='/phone' component={phoneProducts}></Route>
+                <Route path='/laptops' component={laptopsProducts}/>
+                <Route path='/gaming' component={gamingProducts}></Route>
+                <Route path='/trending' component={Trending}></Route>
+                <Route path='/trending_p' component={Trending_p}></Route>
+                <Route path='/trending_l' component={Trending_l}></Route>
+                <Route path='/trending_g' component={Trending_g}></Route>
+                <Route exact path='/results' component={Results}></Route>
+                <Route path='/:slug/all' component={ShopIndex}/>
+                <Route path='/:slug/laptops' component={LaptopIndex}/>
+                <Route path='/:slug/gaming' component={GamingIndex}/>
+                <Route path='/:slug/phone' component={PhoneIndex}/>
+                <Route path='/shop' component={Shop}/>
+                <Route path='' component={NotFound}/>
+            </Switch>
+        </div>
         )
     }
 }

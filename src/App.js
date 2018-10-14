@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import Navigation from './rifqoh/nav';
 import Main from './rifqoh/router';
 import FeedBack from './rifqoh/feedBack';
 import Progress from 'react-progress-2';
@@ -15,7 +14,6 @@ class App extends Component {
         style={{background:'#dc3545'}}
         thumbStyle={{background:'#dc3545'}}
       />
-      <Navigation/>
       <Main/>
       <FeedBack/>
     </div>

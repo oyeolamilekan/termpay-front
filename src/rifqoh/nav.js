@@ -79,6 +79,18 @@ class Navigation extends Component {
                   Trending
                 </NavLink>
               </li>
+              {username ? <
+                li className="nav-item">
+                <NavLink
+                  exact
+                  to="/user_products"
+                  activeClassName="active"
+                  className="nav-link"
+                  onClick={clicker}
+                >
+                  Feeds
+                </NavLink>
+              </li>: ''}
               <li className="nav-item">
                 <NavLink
                   exact

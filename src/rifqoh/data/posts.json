@@ -1,21 +1,21 @@
 [
     {
         "id":1,
-        "title":"Phones",
+        "title":"phones",
         "content":"you stupid",
         "date":"12-04-2018",
         "slug":"Hello-opo"
     },
     {
         "id":2,
-        "title":"Laptops",
+        "title":"laptops",
         "content":"you supid",
         "date":"12-04-2018",
         "slug":"Helo-opo"
     },
     {
         "id":3,
-        "title":"Gaming",
+        "title":"gaming",
         "content":"you supid",
         "date":"12-04-2018",
         "slug":"Helo-opo"

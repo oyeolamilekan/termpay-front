@@ -24,6 +24,7 @@ import NotFound from "./404";
 import Navigation from "./nav";
 import Login from "./accounts/Login";
 import SignUp from "./accounts/Signup";
+import UserIndex from "./accounts/user_products";
 import genreList from "./accounts/genreChoice";
 
 class Main extends Component {
@@ -42,6 +43,7 @@ class Main extends Component {
           <Route path="/trending_g" component={Trending_g} />
           <Route exact path="/results" component={Results} />
           <Route path="/shop" component={Shop} />
+          <Route path="/user_products" component={UserIndex} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={SignUp} />
           <Route path="/pick" component={genreList} />

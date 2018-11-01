@@ -22,6 +22,9 @@ import PhoneIndex from "./shop/phone";
 import Results from "./results";
 import NotFound from "./404";
 import Navigation from "./nav";
+import Login from "./accounts/Login";
+import SignUp from "./accounts/Signup";
+import genreList from "./accounts/genreChoice";
 
 class Main extends Component {
   render() {
@@ -38,11 +41,14 @@ class Main extends Component {
           <Route path="/trending_l" component={Trending_l} />
           <Route path="/trending_g" component={Trending_g} />
           <Route exact path="/results" component={Results} />
+          <Route path="/shop" component={Shop} />
+          <Route path="/login" component={Login} />
+          <Route path="/signup" component={SignUp} />
+          <Route path="/pick" component={genreList} />
           <Route path="/:slug/all" component={ShopIndex} />
           <Route path="/:slug/laptops" component={LaptopIndex} />
           <Route path="/:slug/gaming" component={GamingIndex} />
           <Route path="/:slug/phone" component={PhoneIndex} />
-          <Route path="/shop" component={Shop} />
           <Route path="" component={NotFound} />
         </Switch>
       </div>

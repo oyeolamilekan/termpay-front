@@ -37,10 +37,10 @@ class ProductDetail extends Component {
     const { results } = this.state;
     return (
       <div className="row">
-        {results.map(item => (
+        {results.map((item, key) => (
           <div
             className="col-lg-3 col-md-4 col-sm-6 col-xs-12"
-            key={item.id + "" + item.name}
+            key={`${item.id}-${item.name}-${key}`}
           >
             <a
               href={`${url}/api/r_redirect/${
@@ -49,7 +49,7 @@ class ProductDetail extends Component {
               target="_blank"
               className="product_d text-dark"
             >
-              <div className="snpt" key={item.id}>
+              <div className={`snpt ${item.id}-${item.name}-${key}`} key={`${item.id}-${item.name}-${key}`}>
                 {/* <img src={item.image.indexOf('local') > -1 ? item.image : item.image.indexOf('media') > -1 ? 'http://localhost:8000'+ item.image : 'http://localhost:8000/media/'+ item.image } alt={item.name} className='img-prod' /> */}
                 <img
                   src={

@@ -1,0 +1,23 @@
+[
+    {
+        "id":1,
+        "title":"Phones",
+        "content":"you stupid",
+        "date":"12-04-2018",
+        "slug":"Hello-opo"
+    },
+    {
+        "id":2,
+        "title":"Laptops",
+        "content":"you supid",
+        "date":"12-04-2018",
+        "slug":"Helo-opo"
+    },
+    {
+        "id":3,
+        "title":"Gaming",
+        "content":"you supid",
+        "date":"12-04-2018",
+        "slug":"Helo-opo"
+    }
+]

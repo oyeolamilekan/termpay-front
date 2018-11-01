@@ -8,15 +8,15 @@ import 'react-progress-2/main.css';
 class App extends Component {
 
   render() {
-    return(
-    <div>
-      <Progress.Component 
-        style={{background:'#dc3545'}}
-        thumbStyle={{background:'#dc3545'}}
-      />
-      <Main/>
-      <FeedBack/>
-    </div>
+    return (
+      <div>
+        <Progress.Component
+          style={{ background: '#dc3545' }}
+          thumbStyle={{ background: '#dc3545' }}
+        />
+        <Main />
+        <FeedBack />
+      </div>
     )
   }
 }

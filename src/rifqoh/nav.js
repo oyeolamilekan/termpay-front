@@ -68,6 +68,21 @@ class Navigation extends Component {
                   Home
                 </NavLink>
               </li>
+              {username ? (
+                <li className="nav-item">
+                  <NavLink
+                    exact
+                    to="/user_products"
+                    activeClassName="active"
+                    className="nav-link"
+                    onClick={clicker}
+                  >
+                    Feeds
+                  </NavLink>
+                </li>
+              ) : (
+                ""
+              )}
               <li className="nav-item">
                 <NavLink
                   exact
@@ -79,18 +94,6 @@ class Navigation extends Component {
                   Trending
                 </NavLink>
               </li>
-              {username ? <
-                li className="nav-item">
-                <NavLink
-                  exact
-                  to="/user_products"
-                  activeClassName="active"
-                  className="nav-link"
-                  onClick={clicker}
-                >
-                  Feeds
-                </NavLink>
-              </li>: ''}
               <li className="nav-item">
                 <NavLink
                   exact
@@ -119,27 +122,27 @@ class Navigation extends Component {
                     </a>
                   </div>
                 ) : (
-                    <div className="non-auth-nav-actions navbar-nav">
-                      <NavLink
-                        exact
-                        to="/login"
-                        activeClassName="active"
-                        className="nav-link"
-                        onClick={clicker}
-                      >
-                        Login
+                  <div className="non-auth-nav-actions navbar-nav">
+                    <NavLink
+                      exact
+                      to="/login"
+                      activeClassName="active"
+                      className="nav-link"
+                      onClick={clicker}
+                    >
+                      Login
                     </NavLink>
-                      <NavLink
-                        exact
-                        to="/signup"
-                        activeClassName="active"
-                        className="nav-link"
-                        onClick={clicker}
-                      >
-                        Sign up
+                    <NavLink
+                      exact
+                      to="/signup"
+                      activeClassName="active"
+                      className="nav-link"
+                      onClick={clicker}
+                    >
+                      Sign up
                     </NavLink>
-                    </div>
-                  )}
+                  </div>
+                )}
               </div>
             </ul>
           </div>

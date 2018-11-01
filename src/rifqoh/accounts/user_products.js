@@ -99,7 +99,6 @@ class UserIndex extends Component {
       return (
         <div className="wrapper">
           <CurrentPage current="Feeds" dClass="grd-color-7" />
-          <MiniNavigationS shop={slug} />
           <BodyPage results={productList} />
           {isNextLoading ? (
             <div className="text-center">

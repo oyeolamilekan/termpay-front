@@ -10,6 +10,8 @@ import Progress from "react-progress-2";
 import "react-progress-2/main.css";
 import strip from "../strip.png";
 import Search from "./search";
+import { withRouter } from "react-router";
+
 class Navigation extends Component {
   constructor(props) {
     super(props);
@@ -23,9 +25,7 @@ class Navigation extends Component {
     localStorage.removeItem("username");
     localStorage.removeItem("token");
     localStorage.removeItem("expirationDate");
-    this.setState({
-      username: ""
-    });
+    this.props.history.push("/logout");
   }
   render() {
     const username = localStorage.getItem("username");
@@ -156,4 +156,4 @@ class Navigation extends Component {
 function clicker() {
   Progress.show();
 }
-export default Navigation;
+export default withRouter(Navigation);

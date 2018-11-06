@@ -3,7 +3,6 @@ import CurrentPage from "../currentPage";
 import Progress from "react-progress-2";
 import "react-progress-2/main.css";
 import BodyPage from "../bodyPage";
-import MiniNavigationS from "../shop/shopNav";
 import url from "../url";
 import Loading from "../loading";
 import MiniLoading from "../miniLoading";
@@ -30,7 +29,6 @@ class UserIndex extends Component {
 
   componentDidMount() {
     Progress.hide();
-    const { slug } = this.props.match.params;
     Axios.get(`${url}/api/user_products/`, {
       headers: {
         "Content-Type": "application/json",
@@ -88,7 +86,6 @@ class UserIndex extends Component {
   render() {
     const { productList } = this.state;
     const { isNextLoading } = this.state;
-    const { slug } = this.props.match.params;
     if (this.state.isLoading) {
       return (
         <div className="container pre-loader mt-100 h-100 text-center">

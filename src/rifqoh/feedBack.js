@@ -166,15 +166,8 @@ class FeedBack extends Component {
                         required="true"
                       />
                     </div>
-                    <div className="float-right">
-                      <button
-                        type="button"
-                        className="btn btn-dark mr-2"
-                        data-dismiss="modal"
-                      >
-                        <i className="fa fa-times" /> Close
-                      </button>
-                      <button type="submit" className="btn btn-primary">
+                    <div className="btn-container">
+                      <button type="submit" className="btn btn-dark btn-block rounded">
                         <i className="fa fa-paper-plane" /> Send
                       </button>
                     </div>

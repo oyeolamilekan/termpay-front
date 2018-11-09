@@ -40,12 +40,13 @@ body {
     transform: rotate(360deg);
   }
 }
-
+.rounded {
+  border-radius: 1rem !important;
+}
 .snpt {
   height: 425px;
   border-radius: 2px;
   background-color: #fff;
-  padding: 10px;
   margin-bottom: 20px;
   text-align: center;
 }
@@ -206,7 +207,7 @@ a.product_d {
   height: 60px;
   bottom: 30px;
   right: 30px;
-  background-color: #0c9;
+  background-color: black;
   color: #fff;
   border-radius: 50px;
   text-align: center;
@@ -266,4 +267,14 @@ a.float:hover {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+.price-tag {
+  position: absolute;
+  top: 5px;
+  right: 22px;
+  padding: 4px;
+  color: white;
+  font-size: 14px;
+  border-radius: 5px;
 }

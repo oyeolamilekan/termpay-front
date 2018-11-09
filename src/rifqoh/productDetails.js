@@ -49,7 +49,10 @@ class ProductDetail extends Component {
               target="_blank"
               className="product_d text-dark"
             >
-              <div className={`snpt ${item.id}-${item.name}-${key}`} key={`${item.id}-${item.name}-${key}`}>
+              <div
+                className={`snpt ${item.id}-${item.name}-${key}`}
+                key={`${item.id}-${item.name}-${key}`}
+              >
                 {/* <img src={item.image.indexOf('local') > -1 ? item.image : item.image.indexOf('media') > -1 ? 'http://localhost:8000'+ item.image : 'http://localhost:8000/media/'+ item.image } alt={item.name} className='img-prod' /> */}
                 <img
                   src={
@@ -59,17 +62,21 @@ class ProductDetail extends Component {
                         item.image
                   }
                   alt={item.name}
-                  className="img-prod"
+                  className="img-prod mt-5"
                 />
-                <p>
-                  {item.name.length > 50
-                    ? item.name.slice(0, 50) + "...."
-                    : item.name}
-                </p>
-                <p>
+                <div className="price-tag bg-dark">
                   <span>&#8358;</span>
                   {item.price}
-                </p>
+                </div>
+                <hr/>
+                <div className="product-name mt-4 p-2">
+                  <p>
+                    {item.name.length > 50
+                      ? item.name.slice(0, 50) + "...."
+                      : item.name}
+                  </p>
+                </div>
+              
                 <p>{item.shop}</p>
               </div>
             </a>

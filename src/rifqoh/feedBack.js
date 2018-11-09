@@ -167,7 +167,7 @@ class FeedBack extends Component {
                       />
                     </div>
                     <div className="btn-container">
-                      <button type="submit" className="btn btn-dark btn-block rounded-circle">
+                      <button type="submit" className="btn btn-dark btn-block rounded-btn">
                         <i className="fa fa-paper-plane" /> Send
                       </button>
                     </div>

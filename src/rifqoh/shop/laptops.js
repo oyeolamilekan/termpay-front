@@ -1,7 +1,7 @@
 import React, { Component } from "react";
+import "react-progress-2/main.css";
 import CurrentPage from "../currentPage";
 import Progress from "react-progress-2";
-import "react-progress-2/main.css";
 import BodyPage from "../bodyPage";
 import MiniNavigationS from "./shopNav";
 import url from "../url";

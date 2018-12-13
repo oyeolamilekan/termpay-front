@@ -17,20 +17,25 @@ class FeedBack extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+
+  // Handles the value input
+  // And changes the state in other
+  // To send the value to the server
   handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value
     });
   }
 
+  // Submits the form data to the API
+  // And does some cool animation 
   handleSubmit(event) {
     event.preventDefault();
     this.setState({
       loading: true
     });
-    const { score } = this.state;
-    const { email } = this.state;
-    const { message } = this.state;
+    const { score, email, message } = this.state;
     if (score && email && message) {
       Axios.post(`${url}/api/create/`, {
         score: score,
@@ -52,9 +57,7 @@ class FeedBack extends Component {
     }
   }
   render() {
-    const { sent } = this.state;
-    const { error } = this.state;
-    const { loading } = this.state;
+    const { sent, error, loading } = this.state;
     return (
       <div className="modal-container">
         <a

@@ -122,7 +122,20 @@ class Navigation extends Component {
                   Trending
                 </NavLink>
               </li>
-              <li className="nav-item">
+              <li
+                className={`nav-item ${this.getNavLinkClass(
+                  "/konga/all"
+                )} ${this.getNavLinkClass(
+                  "/konga/phone"
+                )} ${this.getNavLinkClass(
+                  "/konga/laptops"
+                )} ${this.getNavLinkClass("/konga/gaming")}
+                ${this.getNavLinkClass("/jumia/all")} ${this.getNavLinkClass(
+                  "/jumia/phone"
+                )} ${this.getNavLinkClass(
+                  "/jumia/laptops"
+                )} ${this.getNavLinkClass("/jumia/gaming")}`}
+              >
                 <NavLink
                   exact
                   to="/shop"

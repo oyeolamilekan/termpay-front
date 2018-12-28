@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+
+import CatDetail from "./choicesDetail";
 import PostData from "../data/posts.json";
-import PostDetail from "./choicesDetail";
 import axios from "axios";
 import url from "../url";
 
@@ -45,9 +46,7 @@ class GenreList extends Component {
   }
 
   render() {
-    const { genres } = this.state;
-    const { counter } = this.state;
-    const { from_genre } = this.state;
+    const { genres, counter, from_genre } = this.state;
     return (
       <div className="col-md-6 offset-md-3">
         {" "}
@@ -59,7 +58,7 @@ class GenreList extends Component {
             {genres.map((genreList, index) => {
               return (
                 <div className="list-data">
-                  <PostDetail
+                  <CatDetail
                     genr={genreList}
                     key={`post-l=ist-key ${index} fhhfhh`}
                     counter={this.incr}

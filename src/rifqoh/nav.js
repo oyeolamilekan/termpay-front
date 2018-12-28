@@ -4,12 +4,14 @@
  * This source code is free
  */
 
+import "react-progress-2/main.css";
+
 import React, { Component } from "react";
+
 import { NavLink } from "react-router-dom";
 import Progress from "react-progress-2";
-import "react-progress-2/main.css";
-import strip from "../strip.png";
 import Search from "./search";
+import strip from "../strip.png";
 import { withRouter } from "react-router";
 
 class Navigation extends Component {
@@ -20,6 +22,18 @@ class Navigation extends Component {
     };
     this.logout = this.logout.bind(this);
   }
+
+  // Get the current url that the
+  // User is currently in
+  // and put active class to parent class
+  getNavLinkClass = path => {
+    return this.props.location.pathname === path ? "active" : "";
+  };
+
+  // This handles the logout event
+  // It deletes the token from the
+  // Browser and redirects to the
+  // Log out page
   logout(event) {
     event.preventDefault();
     localStorage.removeItem("username");
@@ -27,6 +41,8 @@ class Navigation extends Component {
     localStorage.removeItem("expirationDate");
     this.props.history.push("/logout");
   }
+
+  // You know what this does.
   render() {
     const username = localStorage.getItem("username");
     return (
@@ -57,7 +73,13 @@ class Navigation extends Component {
 
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav mr-auto">
-              <li className="nav-item">
+              <li
+                className={`nav-item ${this.getNavLinkClass(
+                  "/phone"
+                )} ${this.getNavLinkClass("/laptops")} ${this.getNavLinkClass(
+                  "/gaming"
+                )}`}
+              >
                 <NavLink
                   exact
                   to="/"
@@ -83,7 +105,13 @@ class Navigation extends Component {
               ) : (
                 ""
               )}
-              <li className="nav-item">
+              <li
+                className={`nav-item ${this.getNavLinkClass(
+                  "/trending_p"
+                )} ${this.getNavLinkClass(
+                  "/trending_l"
+                )} ${this.getNavLinkClass("/trending_g")}`}
+              >
                 <NavLink
                   exact
                   to="/trending"

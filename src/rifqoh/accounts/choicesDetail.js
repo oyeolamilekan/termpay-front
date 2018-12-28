@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+
 import axios from "axios";
 import url from "../url";
 
-class PostDetail extends Component {
+class CatDetail extends Component {
   constructor(props) {
     super(props);
     this.toogleContent = this.toogleContent.bind(this);
@@ -41,4 +42,4 @@ class PostDetail extends Component {
   }
 }
 
-export default PostDetail;
+export default CatDetail;

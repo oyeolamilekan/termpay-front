@@ -23,13 +23,11 @@ class PostDetail extends Component {
     }));
   }
   render() {
-    const { genr } = this.props;
-    const { activeContent } = this.state;
+    const { activeContent, genr } = this.state;
 
     return (
       <div
         className={activeContent ? "contt" : "kkk"}
-        // onClick={this.toogleContent}
       >
         {genr.title}
         <button onClick={this.counter}>{this.state.num}</button>

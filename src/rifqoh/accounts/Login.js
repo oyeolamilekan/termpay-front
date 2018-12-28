@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import axios from "axios";
-import url from "../url";
+
 import Loading from "react-spinners/BeatLoader";
+import axios from "axios";
 import strip from "../strip.png";
+import url from "../url";
 
 class Login extends Component {
   constructor(props) {
@@ -58,6 +59,7 @@ class Login extends Component {
         });
       });
   }
+  
   render() {
     const { error } = this.state;
     const { loading } = this.state;

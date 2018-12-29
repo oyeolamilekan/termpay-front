@@ -196,6 +196,8 @@ class SignUp extends Component {
             </form>
           </div>
         </div>
+        <div className="mt-4"/>
+        <div className="mt-4"/>
       </div>
     );
   }

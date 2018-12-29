@@ -44,7 +44,6 @@ class Login extends Component {
         password: password
       })
       .then(res => {
-        console.log(username);
         const token = res.data.key;
         const expirationDate = new Date(new Date().getTime() + 3600 * 1000);
         localStorage.setItem("username", username);
@@ -59,13 +58,12 @@ class Login extends Component {
         });
       });
   }
-  
+
   render() {
-    const { error } = this.state;
-    const { loading } = this.state;
+    const { loading, error } = this.state;
     return (
       <div className="col-md-6 offset-md-3">
-        <div className="container mt-10 bg-white p-4 box-shadow rounded">
+        <div className="container mt-10 bg-white p-4 shadow">
           <div className="img-container text-center">
             <img src={strip} className="reg-img" alt="logo" />
           </div>
@@ -114,10 +112,10 @@ class Login extends Component {
                   onChange={this.handleChange}
                 />
               </div>
-              <div className="btn-submit">
+              <div className="btn-submit mt-4">
                 <button
                   type="submit"
-                  className="btn btn-block btn-dark p-3"
+                  className="btn btn-block btn-dark p-3 btn-shadow-dark"
                   disabled={loading ? true : false}
                 >
                   {loading ? (
@@ -134,7 +132,7 @@ class Login extends Component {
                   )}
                 </button>
               </div>
-              <div className="mt-4" />
+              <div className="mb-4" />
             </form>
           </div>
         </div>

@@ -1,12 +1,14 @@
-import React, { Component } from "react";
-import CurrentPage from "../currentPage";
-import Progress from "react-progress-2";
 import "react-progress-2/main.css";
+
+import React, { Component } from "react";
+
+import Axios from "axios";
 import BodyPage from "../bodyPage";
-import url from "../url";
+import CurrentPage from "../currentPage";
 import Loading from "../loading";
 import MiniLoading from "../miniLoading";
-import Axios from "axios";
+import Progress from "react-progress-2";
+import url from "../url";
 
 class UserIndex extends Component {
   constructor(props) {
@@ -40,7 +42,6 @@ class UserIndex extends Component {
         isNext: res.data.next ? res.data.next.replace(url, "") : "",
         isLoading: false
       });
-      console.log(res.data.next)
     });
     document.addEventListener("scroll", this.trackScrolling);
   }
@@ -62,7 +63,6 @@ class UserIndex extends Component {
 
   loadMore = () => {
     let next = `${url}${this.state.isNext}`;
-    console.log(next)
     if (next !== null) {
       Axios.get(next, {
         headers: {

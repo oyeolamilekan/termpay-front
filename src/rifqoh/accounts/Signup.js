@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import axios from "axios";
-import url from "../url";
+
 import Loading from "react-spinners/BeatLoader";
+import axios from "axios";
 import strip from "../strip.png";
+import url from "../url";
 
 class SignUp extends Component {
   constructor(props) {
@@ -92,12 +93,10 @@ class SignUp extends Component {
       });
   }
   render() {
-    const { error } = this.state;
-    const { errorMessage } = this.state;
-    const { loading } = this.state;
+    const { loading, errorMessage, error } = this.state;
     return (
       <div className="col-md-6 offset-md-3">
-        <div className="container mt-10 bg-white p-4 box-shadow rounded">
+        <div className="container mt-10 bg-white p-4 shadow">
           <div className="img-container text-center">
             <img src={strip} className="reg-img" alt="logo" />
           </div>
@@ -176,7 +175,7 @@ class SignUp extends Component {
               <div className="btn-submit">
                 <button
                   type="submit"
-                  className="btn btn-block btn-dark p-3"
+                  className="btn btn-block btn-dark p-3 btn-shadow-dark"
                   disabled={loading ? true : false}
                 >
                   {loading ? (

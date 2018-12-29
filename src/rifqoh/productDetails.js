@@ -5,6 +5,7 @@
  */
 
 import React, { Component } from "react";
+
 import url from "./url";
 
 class ProductDetail extends Component {
@@ -47,6 +48,7 @@ class ProductDetail extends Component {
                 item.id ? item.id : item.objectID
               }`}
               target="_blank"
+              rel="noopener noreferrer"
               className="product_d text-dark"
             >
               <div

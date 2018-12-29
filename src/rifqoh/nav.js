@@ -67,6 +67,7 @@ class Navigation extends Component {
             aria-controls="navbarNavDropdown"
             aria-expanded="false"
             aria-label="Toggle navigation"
+            href="/#"
           >
             <span className="navbar-toggler-icon" />
           </a>
@@ -158,7 +159,7 @@ class Navigation extends Component {
                       <i className="fa fa-user-circle text-success" /> Hi,{" "}
                       {username}
                     </a>
-                    <a className="nav-link logout" onClick={this.logout}>
+                    <a className="nav-link logout" onClick={this.logout} href="/#">
                       Logout
                     </a>
                   </div>

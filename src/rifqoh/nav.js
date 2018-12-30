@@ -80,6 +80,8 @@ class Navigation extends Component {
                 )} ${this.getNavLinkClass("/laptops")} ${this.getNavLinkClass(
                   "/gaming"
                 )}`}
+                data-toggle="collapse"
+                data-target=".navbar-collapse.show"
               >
                 <NavLink
                   exact
@@ -92,7 +94,11 @@ class Navigation extends Component {
                 </NavLink>
               </li>
               {username ? (
-                <li className="nav-item">
+                <li
+                  className="nav-item"
+                  data-toggle="collapse"
+                  data-target=".navbar-collapse.show"
+                >
                   <NavLink
                     exact
                     to="/user_products"
@@ -112,6 +118,8 @@ class Navigation extends Component {
                 )} ${this.getNavLinkClass(
                   "/trending_l"
                 )} ${this.getNavLinkClass("/trending_g")}`}
+                data-toggle="collapse"
+                data-target=".navbar-collapse.show"
               >
                 <NavLink
                   exact
@@ -136,6 +144,8 @@ class Navigation extends Component {
                 )} ${this.getNavLinkClass(
                   "/jumia/laptops"
                 )} ${this.getNavLinkClass("/jumia/gaming")}`}
+                data-toggle="collapse"
+                data-target=".navbar-collapse.show"
               >
                 <NavLink
                   exact
@@ -159,7 +169,13 @@ class Navigation extends Component {
                       <i className="fa fa-user-circle text-success" /> Hi,{" "}
                       {username}
                     </a>
-                    <a className="nav-link logout" onClick={this.logout} href="/#">
+                    <a
+                      className="nav-link logout"
+                      onClick={this.logout}
+                      href="/#"
+                      data-toggle="collapse"
+                      data-target=".navbar-collapse.show"
+                    >
                       Logout
                     </a>
                   </div>
@@ -171,6 +187,8 @@ class Navigation extends Component {
                       activeClassName="active"
                       className="nav-link"
                       onClick={clicker}
+                      data-toggle="collapse"
+                      data-target=".navbar-collapse.show"
                     >
                       Login
                     </NavLink>
@@ -180,6 +198,8 @@ class Navigation extends Component {
                       activeClassName="active"
                       className="nav-link"
                       onClick={clicker}
+                      data-toggle="collapse"
+                      data-target=".navbar-collapse.show"
                     >
                       Sign up
                     </NavLink>

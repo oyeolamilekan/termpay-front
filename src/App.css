@@ -296,3 +296,23 @@ a.float:hover {
 .btn-shadow-dark {
   box-shadow: 0.1px 7px 32px 1px #343a4069
 }
+
+.nav-scroller {
+  background-color: #fff;
+  position: relative;
+  height: 2.25rem;
+  z-index: 2;
+  overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+  display: flex;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  color: rgba(255, 255, 255, .75);
+  text-align: center;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 1rem;
+}

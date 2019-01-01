@@ -1,9 +1,17 @@
-import React, { Component } from 'react';
+/**
+ * Copyright (c) 2018-present, A68, Inc.
+ *
+ * This source code is free
+ */
+
 import './App.css';
-import Main from './rifqoh/router';
-import FeedBack from './rifqoh/feedBack';
-import Progress from 'react-progress-2';
 import 'react-progress-2/main.css';
+
+import React, { Component } from 'react';
+
+import FeedBack from './rifqoh/feedBack';
+import Main from './rifqoh/router';
+import Progress from 'react-progress-2';
 
 class App extends Component {
 

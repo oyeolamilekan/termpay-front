@@ -1,3 +1,9 @@
+/**
+ * Copyright (c) 2018-present, A68, Inc.
+ *
+ * This source code is free
+ */
+
 import React, { Component } from "react";
 
 import Loading from "react-spinners/BeatLoader";
